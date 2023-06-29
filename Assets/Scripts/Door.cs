@@ -27,10 +27,18 @@ public class Door : MonoBehaviour,IInteractable
     [ContextMenu("yoooo")]
     public void OnInteract()
     {
+        if (PlayerInventory.Inventory.GetKey() <= 0)
+            return;
+        OpenDoor();
+        PlayerInventory.Inventory.RemoveKey();
+    }
+
+    private void OpenDoor()
+    {
         //open door
         LeanTween.moveY(doorT.gameObject, _startPos.y + doorOpenDistance, doorOpenTime).setEaseOutQuad();
-        CameraShake.Instance.Shake(1.5f,.5f);
-        Invoke(nameof(DisableDoor),doorOpenTime);
+        CameraShake.Instance.Shake(1.5f, .5f);
+        Invoke(nameof(DisableDoor), doorOpenTime);
     }
 
     void DisableDoor()

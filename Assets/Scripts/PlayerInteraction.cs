@@ -9,11 +9,13 @@ namespace DefaultNamespace
     {
         [SerializeField] private float interactionDistance = 2f;
         [SerializeField] private KeyCode interactButton;
+        [SerializeField] private KeyCode gamePadInteractButton = KeyCode.JoystickButton0;
+        
         [SerializeField] private LayerMask interactableLayer;
 
         private void Update()
         {
-            if(Input.GetKeyDown(interactButton))
+            if(Input.GetKeyDown(interactButton)|| Input.GetKeyDown(gamePadInteractButton))
                 CheckForInteractable();
         }
 

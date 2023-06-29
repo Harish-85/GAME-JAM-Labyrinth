@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TarodevController;
 using UnityEngine;
 
 public class Shop :MonoBehaviour, IInteractable
@@ -8,6 +9,8 @@ public class Shop :MonoBehaviour, IInteractable
 
     [SerializeField] private int keyCost = 10;
     [SerializeField] private int torchCost = 10;
+    
+    [SerializeField] private float distanceToExit = 4f;
     
     // Start is called before the first frame update
     void Start()
@@ -22,6 +25,15 @@ public class Shop :MonoBehaviour, IInteractable
         {
             OnExitShop();
         }
+        
+        DistanceCheck();
+        
+    }
+    
+    void DistanceCheck()
+    {
+        if(Vector3.Distance(transform.position, PlayerLocationBroadcaster.Instance.GetPlayerLocation()) > distanceToExit)
+            OnExitShop();
     }
 
     public void OnInteract()

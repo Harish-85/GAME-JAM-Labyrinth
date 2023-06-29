@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2208705433736489226}
   - component: {fileID: 7460329418710903250}
   - component: {fileID: 9032606313783080303}
+  - component: {fileID: 7172097342807426814}
   m_Layer: 7
   m_Name: bottomless_pit
   m_TagString: Untagged
@@ -131,6 +132,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3, y: 0.5861188}
   m_EdgeRadius: 0
+--- !u!114 &7172097342807426814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3743541501339722655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ec95b46d31a1454892a22c764bd1cd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayCount: 10
+  width: 2
 --- !u!1 &8641026229109897718
 GameObject:
   m_ObjectHideFlags: 0
