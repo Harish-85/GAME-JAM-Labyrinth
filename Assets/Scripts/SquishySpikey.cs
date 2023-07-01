@@ -8,6 +8,8 @@ public class SquishySpikey : MonoBehaviour
     [SerializeField]private float extendendPosition = 2;
 
     [SerializeField] private float extendRetractTime = 1f;
+    [SerializeField] private float waitTime = 1f;
+    
     [SerializeField] private float rayWidth = 2;
     [SerializeField] private float rayLength = 2;
     [SerializeField] private int rayCount = 5;
@@ -58,6 +60,11 @@ public class SquishySpikey : MonoBehaviour
 
     void Retract()
     {
-        LeanTween.move(gameObject, neutralPosition, extendRetractTime).setOnComplete(Extract);
+        LeanTween.move(gameObject, neutralPosition, extendRetractTime).setOnComplete(PreExtract);
+    }
+
+    void PreExtract()
+    {
+        Invoke(nameof(Extract), waitTime);
     }
 }
