@@ -9,7 +9,8 @@ public class DeathVoid : MonoBehaviour
     [SerializeField] private int rayCount;
 
     [SerializeField]private float width;
-    
+    [SerializeField] private float rayLength;
+    [SerializeField] private float startOffset;
     
     // Start is called before the first frame update
     void Start()
@@ -34,8 +35,8 @@ public class DeathVoid : MonoBehaviour
         //get the start position of the ray
         for( int i = 0; i < rayCount; i++)
         {
-            var startPos = transform.position + Vector3.left * width / 2 + Vector3.right * width / (rayCount - 1) * i;
-            var hit = Physics2D.Raycast(startPos, direction);
+            Vector2 startPos = transform.position + Vector3.left * width / 2 + Vector3.right * width / (rayCount - 1) * i + (Vector3.up * startOffset);
+            var hit = Physics2D.Raycast(startPos, direction , rayLength);
             if (hit.collider != null)
             {
                 if (hit.collider.CompareTag("Player"))
@@ -45,7 +46,7 @@ public class DeathVoid : MonoBehaviour
                 }
             }
             
-            Debug.DrawRay(startPos, direction, Color.red);
+            Debug.DrawLine(startPos, startPos + direction*rayLength, Color.red);
         }
 
         return false;
