@@ -39,7 +39,7 @@ public class SquishySpikey : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, -transform.up, rayLength);
             
             //debug ray
-            Debug.DrawRay(rayOrigin, -transform.up * rayLength, Color.red);
+            Debug.DrawLine(rayOrigin, rayOrigin + -transform.up * rayLength, Color.red);
             if (hit.collider != null)
             {
                 Debug.Log("Hit");
