@@ -30,8 +30,8 @@ public class DarkRoomEnterance : MonoBehaviour
     void OnRoomEnter()
     {
         Debug.Log("Dark room entered");
-        playerLight.pointLightOuterRadius = darkRoomLightRadius;
-        LeanTween.value(playerLight.gameObject, playerLight.pointLightOuterRadius, 3, 2);
+
+        LeanTween.value( gameObject, playerLight.pointLightOuterRadius, darkRoomLightRadius, 1f).setOnUpdate( (float val)=>{  Debug.Log(playerLight.pointLightOuterRadius = val); } );
 
     }
 
@@ -39,6 +39,6 @@ public class DarkRoomEnterance : MonoBehaviour
     {
         Debug.Log("Room Exit");
         
-        playerLight.pointLightOuterRadius = maxLightRadius;
+        LeanTween.value( gameObject, playerLight.pointLightOuterRadius, maxLightRadius, 1f).setOnUpdate( (float val)=>{  Debug.Log(playerLight.pointLightOuterRadius = val); } );
     }
 }
