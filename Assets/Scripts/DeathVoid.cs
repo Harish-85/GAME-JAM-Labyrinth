@@ -12,7 +12,7 @@ public class DeathVoid : MonoBehaviour
     [SerializeField] private float rayLength;
     [SerializeField] private float startOffset;
 
-    [SerializeField] private LayerMask l = LayerMask.NameToLayer("Player");
+    [SerializeField] private LayerMask l;
     // Start is called before the first frame update
     void Start()
     {
