@@ -148,6 +148,9 @@ MonoBehaviour:
   width: 2.81
   rayLength: 0.81
   startOffset: -0.53
+  l:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &8641026229109897718
 GameObject:
   m_ObjectHideFlags: 0

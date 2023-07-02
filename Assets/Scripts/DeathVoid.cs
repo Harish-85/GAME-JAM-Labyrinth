@@ -11,7 +11,8 @@ public class DeathVoid : MonoBehaviour
     [SerializeField]private float width;
     [SerializeField] private float rayLength;
     [SerializeField] private float startOffset;
-    
+
+    [SerializeField] private LayerMask l = LayerMask.NameToLayer("Player");
     // Start is called before the first frame update
     void Start()
     {
@@ -36,13 +37,18 @@ public class DeathVoid : MonoBehaviour
         for( int i = 0; i < rayCount; i++)
         {
             var startPos = transform.position + Vector3.left * width / 2 + Vector3.right * width / (rayCount - 1) * i + (Vector3.up * startOffset);
-            var hit = Physics2D.Raycast(startPos, direction, rayLength);
+            var hit = Physics2D.Raycast(startPos, direction, rayLength,l);
             if (hit.collider != null)
             {
+                
                 if (hit.collider.CompareTag("Player"))
                 {
                     Debug.Log("Player hit");
                     return true;
+                }
+                else
+                {
+                    Debug.Log("Hit something eldses");
                 }
             }
             

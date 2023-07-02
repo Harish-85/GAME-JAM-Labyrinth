@@ -27,11 +27,17 @@ public class Door : MonoBehaviour,IInteractable
     [ContextMenu("yoooo")]
     public void OnInteract()
     {
+        if (!CanInteract)
+            return;
+        
         if (PlayerInventory.Inventory.GetKey() <= 0)
             return;
+        CanInteract = false;
         OpenDoor();
         PlayerInventory.Inventory.RemoveKey();
     }
+
+    public bool CanInteract { get; set; }
 
     private void OpenDoor()
     {

@@ -11,8 +11,9 @@ public class Shop :MonoBehaviour, IInteractable
     [SerializeField] private int torchCost = 10;
     
     [SerializeField] private float distanceToExit = 4f;
-    
-   
+    private bool _canInteract;
+
+
     // Update is called once per frame
     void Update()
     {
@@ -36,6 +37,12 @@ public class Shop :MonoBehaviour, IInteractable
         shopUI.SetActive(true);
     }
 
+    bool IInteractable.CanInteract
+    {
+        get => _canInteract;
+        set => _canInteract = value;
+    }
+    
     public void OnPurchaseKey()
     {
         if (PlayerInventory.Inventory.GetMoney() < keyCost)
