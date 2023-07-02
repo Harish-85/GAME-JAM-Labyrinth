@@ -35,8 +35,8 @@ public class DeathVoid : MonoBehaviour
         //get the start position of the ray
         for( int i = 0; i < rayCount; i++)
         {
-            Vector2 startPos = transform.position + Vector3.left * width / 2 + Vector3.right * width / (rayCount - 1) * i + (Vector3.up * startOffset);
-            var hit = Physics2D.Raycast(startPos, direction , rayLength);
+            var startPos = transform.position + Vector3.left * width / 2 + Vector3.right * width / (rayCount - 1) * i + (Vector3.up * startOffset);
+            var hit = Physics2D.Raycast(startPos, direction, rayLength);
             if (hit.collider != null)
             {
                 if (hit.collider.CompareTag("Player"))
@@ -46,7 +46,7 @@ public class DeathVoid : MonoBehaviour
                 }
             }
             
-            Debug.DrawLine(startPos, startPos + direction*rayLength, Color.red);
+            Debug.DrawLine(startPos ,  Vector3.up * startOffset+startPos + new Vector3((direction*rayLength).x,(direction*rayLength).y,0), Color.red);
         }
 
         return false;
