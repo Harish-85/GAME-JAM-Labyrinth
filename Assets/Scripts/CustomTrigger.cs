@@ -17,6 +17,7 @@ public class CustomTrigger : MonoBehaviour
     void Start()
     {
         _collider2D = GetComponent<BoxCollider2D>();
+        ScaleCheck();
     }
 
     // Update is called once per frame
@@ -37,6 +38,14 @@ public class CustomTrigger : MonoBehaviour
         
         
      
+    }
+
+    void ScaleCheck()
+    {
+        if (transform.localScale != Vector3.one)
+        {
+            Debug.LogWarning(transform.name + " Scale is not 1,1,1 this will mess up the trigger collider");
+        }
     }
     
     //check if the player is inside the trigger
