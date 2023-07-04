@@ -34,7 +34,8 @@ public class TorchPlacement : MonoBehaviour,IInteractable
             CanInteract = false;
             foreach (var l in lights)
             {
-                l.intensity = lightIntensity;
+                //l.intensity = lightIntensity;
+                LeanTween.value( gameObject, l.intensity, lightIntensity, 1f).setOnUpdate( (float val)=>{  Debug.Log(l.intensity = val); } );
             }
             
         }
