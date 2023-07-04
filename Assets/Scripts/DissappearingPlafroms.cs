@@ -27,6 +27,7 @@ public class DissappearingPlafroms : MonoBehaviour
         {
             platform.SetActive(true);
             timepassed = 0;
+            
         }
     }
 }
