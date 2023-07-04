@@ -27,6 +27,7 @@ namespace DefaultNamespace
             hit1 = Physics2D.Raycast(PlayerLocationBroadcaster.Instance.transform.position, Vector2.right, interactionDistance,interactableLayer);
             hit2 = Physics2D.Raycast(PlayerLocationBroadcaster.Instance.transform.position, Vector2.left, interactionDistance,interactableLayer);
             
+            
             if(hit1 && hit1.collider.GetComponent<IInteractable>() != null){
                 hit1.collider.GetComponent<IInteractable>().OnInteract();
                 Debug.Log(hit1.collider.name);

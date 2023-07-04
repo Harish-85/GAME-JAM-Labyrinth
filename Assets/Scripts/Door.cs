@@ -13,6 +13,7 @@ public class Door : MonoBehaviour,IInteractable
     private Vector3 _startPos;
     
     // Start is called before the first frame update
+    public bool CanInteract { get; set; } = true;
     void Start()
     {
         doorT = transform;
@@ -37,7 +38,6 @@ public class Door : MonoBehaviour,IInteractable
         PlayerInventory.Inventory.RemoveKey();
     }
 
-    public bool CanInteract { get; set; }
 
     private void OpenDoor()
     {

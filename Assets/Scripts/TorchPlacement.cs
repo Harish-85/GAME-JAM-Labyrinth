@@ -6,7 +6,7 @@ using UnityEngine.Rendering.Universal;
 public class TorchPlacement : MonoBehaviour,IInteractable
 {
 
-    public bool CanInteract { get; set; }
+    public bool CanInteract { get; set; } = true;
     [SerializeField]private List<Light2D> lights;
     
     [SerializeField] private float lightIntensity = 1f;
