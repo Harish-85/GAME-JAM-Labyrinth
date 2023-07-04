@@ -173,8 +173,11 @@ namespace TarodevController {
                 // Don't walk through walls
                 _currentHorizontalSpeed = 0;
             }
+            
+            
+            
         }
-
+        
         #endregion
 
         #region Gravity
