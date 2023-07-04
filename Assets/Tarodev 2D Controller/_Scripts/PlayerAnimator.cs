@@ -8,12 +8,12 @@ namespace TarodevController {
     /// This is a supplementary script to help with effects and animation. Basically a juice factory.
     /// </summary>
     public class PlayerAnimator : MonoBehaviour {
-        [SerializeField] private Animator _anim;
-        [SerializeField] private AudioSource _source;
+        
         [SerializeField] private LayerMask _groundMask;
         [SerializeField] private ParticleSystem _jumpParticles, _launchParticles;
         [SerializeField] private ParticleSystem _moveParticles, _landParticles;
-        [SerializeField] private AudioClip[] _footsteps;
+        [SerializeField] private GameObject runObject;
+        [SerializeField] private GameObject idleObject;
         [SerializeField] private float _maxTilt = .1f;
         [SerializeField] private float _tiltSpeed = 1;
         [SerializeField, Range(1f, 3f)] private float _maxIdleSpeed = 2;
@@ -31,25 +31,25 @@ namespace TarodevController {
 
             // Flip the sprite
             if (_player.Input.X != 0) transform.localScale = new Vector3(_player.Input.X > 0 ? 1 : -1, 1, 1);
-
+            if (_player.Input.X != 0)
+            {
+                runObject.SetActive(true);
+                idleObject.SetActive(false);
+            }
+            else
+            {
+                idleObject.SetActive(true);
+                runObject.SetActive(false);
+            }
             // Lean while running
             var targetRotVector = new Vector3(0, 0, Mathf.Lerp(-_maxTilt, _maxTilt, Mathf.InverseLerp(-1, 1, _player.Input.X)));
-            _anim.transform.rotation = Quaternion.RotateTowards(_anim.transform.rotation, Quaternion.Euler(targetRotVector), _tiltSpeed * Time.deltaTime);
-
-            // Speed up idle while running
-            _anim.SetFloat(IdleSpeedKey, Mathf.Lerp(1, _maxIdleSpeed, Mathf.Abs(_player.Input.X)));
-
-            // Splat
-            if (_player.LandingThisFrame) {
-                _anim.SetTrigger(GroundedKey);
-                _source.PlayOneShot(_footsteps[Random.Range(0, _footsteps.Length)]);
-            }
+           
+          
+         
 
             // Jump effects
             if (_player.JumpingThisFrame) {
-                _anim.SetTrigger(JumpKey);
-                _anim.ResetTrigger(GroundedKey);
-
+            
                 // Only play particles when grounded (avoid coyote)
                 if (_player.Grounded) {
                     SetColor(_jumpParticles);
