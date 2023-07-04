@@ -13,7 +13,6 @@ public class EnemyManager : MonoBehaviour
     [SerializeField]private float additionalSpeed;
     [SerializeField] private Transform enemyVisual;
     
-    public event UnityAction OnPlayerKilled;
     
     private AIDestinationSetter _destinationSetter;
     private AIPath _aiPath;
@@ -43,11 +42,12 @@ public class EnemyManager : MonoBehaviour
         {
             enemyVisual.localScale = new Vector3(_enemyScale.x, _enemyScale.y, _enemyScale.z);
         }
-        
+        playerKillCheck();
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
-    {
-        OnPlayerKilled?. Invoke();
-    }
+   void playerKillCheck()
+   {
+       if (_aiPath.remainingDistance < 0.2f)
+           PlayerDeathManager.DeathManager.OnDie();
+   }
 }
