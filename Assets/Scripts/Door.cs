@@ -44,6 +44,7 @@ public class Door : MonoBehaviour,IInteractable
         //open door
         LeanTween.moveY(doorT.gameObject, _startPos.y + doorOpenDistance, doorOpenTime).setEaseOutQuad();
         CameraShake.Instance.Shake(1.5f, .5f);
+        GetComponent<AudioSource>().Play();
         Invoke(nameof(DisableDoor), doorOpenTime);
     }
 

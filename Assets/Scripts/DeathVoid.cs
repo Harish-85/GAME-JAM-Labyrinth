@@ -22,7 +22,10 @@ public class DeathVoid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CastRays();
+        if (CastRays())
+        {
+            PlayerDeathManager.DeathManager.OnDie();
+        }
     }
 
     bool CastRays()

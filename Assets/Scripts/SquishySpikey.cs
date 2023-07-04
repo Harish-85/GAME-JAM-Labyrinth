@@ -47,7 +47,7 @@ public class SquishySpikey : MonoBehaviour
                 if (hit.collider.CompareTag("Player"))
                 {
                     Debug.Log("Player hit");
-                    
+                    PlayerDeathManager.DeathManager.OnDie();
                 }
             }
         }
