@@ -5,21 +5,23 @@ using UnityEngine;
 
 public class DissappearingPlafroms : MonoBehaviour
 {
+    [SerializeField] private float offset = 0;
     [SerializeField] private float dissappearTime;
     [SerializeField] private float activeTime;
     [SerializeField ]private GameObject platform;
     // Start is called before the first frame update
     void Start()
     {
-        
+        timepassed = offset;
     }
 
-    private float timepassed = 0;
+    private float timepassed;
     // Update is called once per frame
     void Update()
     {
         timepassed += Time.deltaTime;
-        if (timepassed > dissappearTime)
+        if (timepassed > dissappearTime
+            )
         {
             platform.SetActive(false);
         }
