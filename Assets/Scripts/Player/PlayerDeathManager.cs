@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TarodevController;
 using Unity.VisualScripting;
 using UnityEngine;
 //More singletons
@@ -38,6 +39,8 @@ public class PlayerDeathManager : MonoBehaviour
     {
         player.position = spawnPoint;
         guppy.position = guppySpawnPoint;
+        guppy.GetComponent<EnemyManager>().ResetSpeed();
+        TimeManager.Instance.timePassed = 0;
     }
     
 }

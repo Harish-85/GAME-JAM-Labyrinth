@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Pathfinding;
 using TarodevController;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,7 +14,8 @@ public class EnemyManager : MonoBehaviour
     [SerializeField]private float speed;
     [SerializeField]private float additionalSpeed;
     [SerializeField] private Transform enemyVisual;
-    
+
+    private float initialSpeed;
     
     private AIDestinationSetter _destinationSetter;
     private AIPath _aiPath;
@@ -23,6 +25,7 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        initialSpeed = speed;
         _aiPath = GetComponent<AIPath>();
         _destinationSetter = GetComponent<AIDestinationSetter>();
         _enemyScale = enemyVisual.localScale;
@@ -50,5 +53,11 @@ public class EnemyManager : MonoBehaviour
    {
        if (_aiPath.remainingDistance < 2f)
            PlayerDeathManager.DeathManager.OnDie();
+   }
+
+   public void ResetSpeed()
+   {
+       _aiPath.maxSpeed = initialSpeed;
+       speed = initialSpeed;
    }
 }
