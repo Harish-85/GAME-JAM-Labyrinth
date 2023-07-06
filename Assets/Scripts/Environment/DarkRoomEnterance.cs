@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
+//Nyctophobia go brrrrrrrrrrrrrrrr
 [RequireComponent(typeof(CustomTrigger))]
 public class DarkRoomEnterance : MonoBehaviour
 {

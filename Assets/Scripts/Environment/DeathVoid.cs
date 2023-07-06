@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//ALl of this just because the character controller doesn't support collision detection
 public class DeathVoid : MonoBehaviour
 {
 

@@ -3,13 +3,14 @@ using System.Collections;
 using Cinemachine;
 using UnityEngine;
 
+//To the person that has motion sickness. I am not adding a setting to remove this
 namespace DefaultNamespace
 {
     public class CameraShake : MonoBehaviour
     {
         private CinemachineVirtualCamera virtualCamera;
 
-        //singleton
+        //singleton again
         public static CameraShake Instance;
         
         private void Awake()

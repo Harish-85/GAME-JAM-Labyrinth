@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//This script is fucking useless and i am too scared to remove it 
 public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update

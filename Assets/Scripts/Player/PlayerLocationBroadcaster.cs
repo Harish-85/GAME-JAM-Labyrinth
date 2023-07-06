@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Why not just set a static varaiable in player controller script ? I don't know
 public class PlayerLocationBroadcaster : MonoBehaviour
 {
     //singleton

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Not very performant, but it works
 public class HiddenPathway : MonoBehaviour
 {
 

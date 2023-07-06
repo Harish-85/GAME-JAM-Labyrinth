@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//singletons . . Singletons everywhere . . Singletons as far as the eye can see
 public class PlayerInventory : MonoBehaviour
 {
     public static PlayerInventory Inventory;

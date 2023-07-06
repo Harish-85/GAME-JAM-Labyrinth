@@ -3,6 +3,8 @@ using TarodevController;
 using Unity.VisualScripting;
 using UnityEngine;
 
+//i can spot a possible bug in this code, can you?
+
 namespace DefaultNamespace
 {
     public class PlayerInteraction : MonoBehaviour

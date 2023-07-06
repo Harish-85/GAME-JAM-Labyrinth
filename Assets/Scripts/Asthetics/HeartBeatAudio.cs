@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+//I just learnt what pitch is so I am using it
 namespace DefaultNamespace
 {
     public class HeartBeatAudio : MonoBehaviour

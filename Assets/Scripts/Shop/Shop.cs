@@ -4,6 +4,7 @@ using TarodevController;
 using TMPro;
 using UnityEngine;
 
+//maybe needs some refactoring . And I am not gonna do it
 public class Shop :MonoBehaviour, IInteractable
 {
     [SerializeField] private GameObject shopUI;
@@ -37,7 +38,13 @@ public class Shop :MonoBehaviour, IInteractable
 
     public void OnInteract()
     {
+        CheckForDialogue();
         shopUI.SetActive(true);
+    }
+    
+    void CheckForDialogue()
+    {
+        PlayerDialogueManager.Instance.PlayLatestFlag();
     }
 
     bool IInteractable.CanInteract

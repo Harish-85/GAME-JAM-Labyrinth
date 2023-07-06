@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
-
+//this is a nightmare to control in editor, but it works
 public class DissappearingPlafroms : MonoBehaviour
 {
     [SerializeField] private float offset = 0;

@@ -4,6 +4,7 @@ using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.Serialization;
 
+// It open , it close
 public class Door : MonoBehaviour,IInteractable
 {
     [SerializeField] Transform doorT;

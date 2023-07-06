@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//i am good at naming things, I know.
 public class SquishySpikey : MonoBehaviour
 {
     [SerializeField]private float extendendPosition = 2;
