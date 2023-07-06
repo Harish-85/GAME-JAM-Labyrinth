@@ -6,6 +6,7 @@ using TarodevController;
 using UnityEngine;
 using UnityEngine.Events;
 
+//His name is GUPPY
 public class EnemyManager : MonoBehaviour
 {
 
@@ -47,7 +48,7 @@ public class EnemyManager : MonoBehaviour
 
    void playerKillCheck()
    {
-       if (_aiPath.remainingDistance < 0.2f)
+       if (_aiPath.remainingDistance < 2f)
            PlayerDeathManager.DeathManager.OnDie();
    }
 }
