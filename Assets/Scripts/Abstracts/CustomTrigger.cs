@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 using UnityEngine.Events;
+
+
 //ALl of this just because the character controller doesn't support collision detection
 [RequireComponent(typeof(BoxCollider2D))]
 public class CustomTrigger : MonoBehaviour
