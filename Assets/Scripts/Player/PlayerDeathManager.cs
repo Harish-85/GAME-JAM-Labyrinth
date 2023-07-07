@@ -13,6 +13,7 @@ public class PlayerDeathManager : MonoBehaviour
     private Vector3 spawnPoint;
     [SerializeField] private Transform player;
     [SerializeField] private Transform guppy;
+    
      private Vector3 guppySpawnPoint;
     private void Awake()
     {
@@ -37,10 +38,23 @@ public class PlayerDeathManager : MonoBehaviour
 
     public void OnDie()
     {
+        DeathEffects();
+        Invoke(nameof(AfterDeath), 1f);
+        
+    }
+
+    private void AfterDeath()
+    {
         player.position = spawnPoint;
         guppy.position = guppySpawnPoint;
         guppy.GetComponent<EnemyManager>().ResetSpeed();
         TimeManager.Instance.timePassed = 0;
+    }
+
+
+    void DeathEffects()
+    {
+        CameraVingnette.Instance.startVignette();
     }
     
 }
