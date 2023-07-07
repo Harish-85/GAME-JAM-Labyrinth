@@ -6,6 +6,7 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     private CustomTrigger _trigger;
+    [SerializeField] private float roateSpeed = 1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,6 @@ public class Coin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Rotate(Vector3.up * roateSpeed * Time.deltaTime);
     }
 }

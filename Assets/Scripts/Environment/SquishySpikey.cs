@@ -16,6 +16,7 @@ public class SquishySpikey : MonoBehaviour
     [SerializeField] private int rayCount = 5;
     [SerializeField] private float rayCastOffset = 0.5f;
     private Vector3 neutralPosition;
+    
     // Start is called before the first frame update
     void Start()
     {

@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+//i miss unity collision detection
 namespace DefaultNamespace
 {
     [RequireComponent(typeof(CustomTrigger))]
