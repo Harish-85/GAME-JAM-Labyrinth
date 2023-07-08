@@ -53,3 +53,6 @@ TagManager:
   - name: ForeGround
     uniqueID: 4178432897
     locked: 0
+  - name: MiniMap
+    uniqueID: 1057528449
+    locked: 0

@@ -105,6 +105,9 @@ MonoBehaviour:
   rayLength: 0.75
   rayCount: 5
   rayCastOffset: -1.57
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!61 &5736864156014794151
 BoxCollider2D:
   m_ObjectHideFlags: 0

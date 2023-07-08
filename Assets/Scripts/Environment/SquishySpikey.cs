@@ -15,6 +15,7 @@ public class SquishySpikey : MonoBehaviour
     [SerializeField] private float rayLength = 2;
     [SerializeField] private int rayCount = 5;
     [SerializeField] private float rayCastOffset = 0.5f;
+    [SerializeField] private LayerMask layerMask;
     private Vector3 neutralPosition;
     
     // Start is called before the first frame update
@@ -38,7 +39,7 @@ public class SquishySpikey : MonoBehaviour
         for (int i = 0; i < rayCount; i++)
         {
             Vector3 rayOrigin = transform.position + new Vector3(-rayWidth / 2 + rayWidth / (rayCount - 1) * i, rayCastOffset, 0);
-            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, -transform.up, rayLength);
+            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, -transform.up, rayLength,layerMask);
             
             //debug ray
             Debug.DrawLine(rayOrigin, rayOrigin + -transform.up * rayLength, Color.red);
