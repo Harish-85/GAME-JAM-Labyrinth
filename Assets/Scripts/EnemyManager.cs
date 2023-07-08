@@ -49,13 +49,16 @@ public class EnemyManager : MonoBehaviour
         playerKillCheck();
     }
 
-   void playerKillCheck()
-   {
-       if (_aiPath.remainingDistance < 2f)
-           PlayerDeathManager.DeathManager.OnDie();
-   }
+    void playerKillCheck()
+    {
+        if (_aiPath.remainingDistance < 2f)
+        {
+            PlayerDeathManager.DeathManager.OnDie();
+            PlayerDeathManager.DeathManager.deathByGuppy++;
+        }
+    }
 
-   public void ResetSpeed()
+    public void ResetSpeed()
    {
        _aiPath.maxSpeed = initialSpeed;
        speed = initialSpeed;

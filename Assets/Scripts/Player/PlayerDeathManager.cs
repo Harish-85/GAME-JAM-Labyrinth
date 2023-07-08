@@ -13,6 +13,11 @@ public class PlayerDeathManager : MonoBehaviour
     private Vector3 spawnPoint;
     [SerializeField] private Transform player;
     [SerializeField] private Transform guppy;
+
+
+    public int deathByVoid = 0;
+    public int deathByGuppy = 0;
+    public int deathBySpikes = 0;
     
      private Vector3 guppySpawnPoint;
     private void Awake()

@@ -26,6 +26,7 @@ public class DeathVoid : MonoBehaviour
         if (CastRays())
         {
             PlayerDeathManager.DeathManager.OnDie();
+            PlayerDeathManager.DeathManager.deathByVoid++;
         }
     }
 

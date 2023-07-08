@@ -51,6 +51,7 @@ public class SquishySpikey : MonoBehaviour
                 {
                     Debug.Log("Player hit");
                     PlayerDeathManager.DeathManager.OnDie();
+                    PlayerDeathManager.DeathManager.deathBySpikes ++;
                 }
             }
         }
