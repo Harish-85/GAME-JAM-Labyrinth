@@ -16,7 +16,14 @@ public class Shop :MonoBehaviour, IInteractable
     [SerializeField] private TextMeshProUGUI SpecialKeyCostText;
     [SerializeField] private float distanceToExit = 4f;
     private bool _canInteract;
+    
+    [SerializeField] private int keyLimit = 10;
+    [SerializeField] private int torchLimit = 2;
+    [SerializeField] private int specialKeyLimit = 1;
 
+    private int keysSold = 0;
+    private int torchesSold = 0;
+    private int specialKeysSold = 0;
 
     // Update is called once per frame
     void Update()
@@ -30,6 +37,17 @@ public class Shop :MonoBehaviour, IInteractable
         keyCostText.text = PlayerInventory.Inventory.GetKey().ToString();
         torchCostText.text = PlayerInventory.Inventory.GetTorch().ToString();
         SpecialKeyCostText.text = PlayerInventory.Inventory.specialKeyCount.ToString();
+        LimitCheck();
+    }
+
+    void LimitCheck()
+    {
+        if(keysSold >= keyLimit)
+            keyCostText.transform.parent.gameObject.SetActive(false);
+        if(torchesSold >= torchLimit)
+            torchCostText.transform.parent.gameObject.SetActive(false);
+        if(specialKeysSold >= specialKeyLimit)
+            SpecialKeyCostText.transform.parent.gameObject.SetActive(false);
     }
     
     void DistanceCheck()
@@ -67,6 +85,7 @@ public class Shop :MonoBehaviour, IInteractable
         
         PlayerInventory.Inventory.RemoveMoney(keyCost);
         PlayerInventory.Inventory.AddKey();
+        keysSold++;
     }
     
     public void OnPurchaseTorch()
@@ -75,6 +94,7 @@ public class Shop :MonoBehaviour, IInteractable
             return;
         PlayerInventory.Inventory.RemoveMoney(torchCost);
         PlayerInventory.Inventory.AddTorch();
+        torchesSold++;
     }
     public void OnExitShop()
     {
@@ -88,6 +108,7 @@ public class Shop :MonoBehaviour, IInteractable
         
         PlayerInventory.Inventory.RemoveMoney(keyCost);
         PlayerInventory.Inventory.AddSpecialKey();
+        specialKeysSold++;
     }
     
 }
