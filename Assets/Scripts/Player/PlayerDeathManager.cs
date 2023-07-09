@@ -54,13 +54,13 @@ public class PlayerDeathManager : MonoBehaviour
 
     private void AfterDeath()
     {
+        isDead = false;
         player.position = spawnPoint;
         guppy.position = guppySpawnPoint;
         guppy.GetComponent<EnemyManager>().ResetSpeed();
         guppy.gameObject.SetActive(false);
         TimeManager.Instance.timePassed = 0;
         totalDeaths++;
-        isDead = false;
     }
 
 

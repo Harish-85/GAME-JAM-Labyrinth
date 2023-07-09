@@ -25,7 +25,7 @@ public class CreepyEye : MonoBehaviour
         Vector3 eyePos = transform.position;
         Vector3 playerToEye = eyePos - playerPos;   
         float angle = Vector3.SignedAngle(playerToEye.normalized, Vector3.right,Vector3.forward) + angleOffset;
-        Debug.Log(angle);
+        
         angle *= Mathf.Deg2Rad;
         //put the angle in the parametric equation of an ellipse
         float x = ellipseAB.x * Mathf.Cos(angle);

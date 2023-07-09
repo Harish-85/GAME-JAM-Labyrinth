@@ -14,6 +14,7 @@ public class Shop :MonoBehaviour, IInteractable
     [SerializeField] private TextMeshProUGUI keyCostText;
     [SerializeField] private TextMeshProUGUI torchCostText;
     [SerializeField] private TextMeshProUGUI SpecialKeyCostText;
+    [SerializeField] private TextMeshProUGUI MONEYText;
     [SerializeField] private float distanceToExit = 4f;
     private bool _canInteract;
     
@@ -37,6 +38,7 @@ public class Shop :MonoBehaviour, IInteractable
         keyCostText.text = PlayerInventory.Inventory.GetKey().ToString();
         torchCostText.text = PlayerInventory.Inventory.GetTorch().ToString();
         SpecialKeyCostText.text = PlayerInventory.Inventory.specialKeyCount.ToString();
+        MONEYText .text = "Money Held : " + PlayerInventory.Inventory.GetMoney().ToString();
         LimitCheck();
     }
 
