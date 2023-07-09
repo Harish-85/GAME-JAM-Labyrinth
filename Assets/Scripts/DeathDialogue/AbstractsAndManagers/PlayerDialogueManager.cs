@@ -22,7 +22,8 @@ public enum FlagEnum
     teleporterUnlock,
     randomStory1,
     randomStory2,
-    randomStory3
+    randomStory3,
+    SpecialDoor
 }
 
 [Serializable]
@@ -31,6 +32,7 @@ public class Flag
     public FlagEnum flag;
     public AbstractDialogueTrigger AbstractDialogueTrigger;
     public AudioClip audio;
+    public string subtitle;
     public bool hasPreformedDialogue;
 }
 
@@ -56,7 +58,7 @@ public class PlayerDialogueManager : MonoBehaviour
     }
 
 
-    public void PlayLatestFlag()
+    public float PlayLatestFlag()
     {
         //check for the first flag that is true and has performed is false
         foreach (Flag f in flags)
@@ -64,16 +66,19 @@ public class PlayerDialogueManager : MonoBehaviour
             if (f.AbstractDialogueTrigger.HasTriggered && !f.hasPreformedDialogue && !_source.isPlaying)
             {
                 f.hasPreformedDialogue = true;
-                PerformDialogue(f.audio);
-                return;
+                PerformDialogue(f.audio,f.subtitle);
+                return f.audio.length;
             }
         }
+
+        return 0;
     }
 
-    void PerformDialogue(AudioClip clip)
+    void PerformDialogue(AudioClip clip,string subtitle)
     {
         _source.clip = clip;
         _source.Play();
+        SubtitlesMaanger.SubtitlesManager.StartSubtitles(subtitle,clip.length+1);
     }
     
     

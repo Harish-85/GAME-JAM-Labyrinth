@@ -38,13 +38,18 @@ public class Shop :MonoBehaviour, IInteractable
 
     public void OnInteract()
     {
-        CheckForDialogue();
+        float time =CheckForDialogue();
+        Invoke(nameof(EnableShop),time);
+    }
+    
+    void EnableShop()
+    {
         shopUI.SetActive(true);
     }
     
-    void CheckForDialogue()
+    float CheckForDialogue()
     {
-        PlayerDialogueManager.Instance.PlayLatestFlag();
+        return PlayerDialogueManager.Instance.PlayLatestFlag();
     }
 
     bool IInteractable.CanInteract

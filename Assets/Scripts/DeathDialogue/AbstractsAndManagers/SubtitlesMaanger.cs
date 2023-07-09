@@ -1,13 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class SubtitlesMaanger : MonoBehaviour
 {
     //singleton
     public static SubtitlesMaanger SubtitlesManager;
-
+    
+    [SerializeField] private TextMeshProUGUI subtitlesText;
+    [SerializeField] private GameObject subtitleWindow;
     private void Awake()
     {
         if (SubtitlesManager == null)
@@ -32,13 +35,20 @@ public class SubtitlesMaanger : MonoBehaviour
         
     }
     
-    void StartSubtitles(string text, float time)
+    public void StartSubtitles(string text, float time)
     {
-        StartCoroutine(ShowSubtitles(text, time));    
+        ShowSubtitles(text);
+        subtitleWindow.SetActive(true);
+        Invoke(nameof(DisableSubtitles), time);
     }
-
-    private IEnumerator ShowSubtitles(string text, float time)
+    
+    void DisableSubtitles()
+    {
+        subtitleWindow.SetActive(false);
+    }
+    void ShowSubtitles(string text)
     {
         
+        subtitlesText.text = text;
     }
 }
