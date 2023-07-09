@@ -18,7 +18,7 @@ namespace TarodevController {
         [SerializeField] private float _tiltSpeed = 1;
         [SerializeField, Range(1f, 3f)] private float _maxIdleSpeed = 2;
         [SerializeField] private float _maxParticleFallSpeed = -40;
-
+        [SerializeField] private AudioSource moveClip;
         private IPlayerController _player;
         private bool _playerGrounded;
         private ParticleSystem.MinMaxGradient _currentGradient;
@@ -43,9 +43,19 @@ namespace TarodevController {
             }
             // Lean while running
             var targetRotVector = new Vector3(0, 0, Mathf.Lerp(-_maxTilt, _maxTilt, Mathf.InverseLerp(-1, 1, _player.Input.X)));
-           
-          
-         
+
+            if (_player.RawMovement.x != 0)
+            {
+                if (moveClip.isPlaying == false)
+                {
+                    moveClip.pitch = Random.Range(0.9f, 1.1f);   
+                    moveClip.Play();
+                }
+            }
+            else
+            {
+                moveClip.Stop();
+            }
 
             // Jump effects
             if (_player.JumpingThisFrame) {
