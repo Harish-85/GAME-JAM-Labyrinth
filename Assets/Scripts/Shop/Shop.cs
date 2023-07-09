@@ -13,6 +13,7 @@ public class Shop :MonoBehaviour, IInteractable
     [SerializeField] private int torchCost = 10;
     [SerializeField] private TextMeshProUGUI keyCostText;
     [SerializeField] private TextMeshProUGUI torchCostText;
+    [SerializeField] private TextMeshProUGUI SpecialKeyCostText;
     [SerializeField] private float distanceToExit = 4f;
     private bool _canInteract;
 
@@ -28,6 +29,7 @@ public class Shop :MonoBehaviour, IInteractable
         DistanceCheck();
         keyCostText.text = PlayerInventory.Inventory.GetKey().ToString();
         torchCostText.text = PlayerInventory.Inventory.GetTorch().ToString();
+        SpecialKeyCostText.text = PlayerInventory.Inventory.specialKeyCount.ToString();
     }
     
     void DistanceCheck()
@@ -77,6 +79,15 @@ public class Shop :MonoBehaviour, IInteractable
     public void OnExitShop()
     {
         shopUI.SetActive(false);
+    }
+    
+    public void OnPurchaseSpecialKey()
+    {
+        if (PlayerInventory.Inventory.GetMoney() < keyCost)
+            return;
+        
+        PlayerInventory.Inventory.RemoveMoney(keyCost);
+        PlayerInventory.Inventory.AddSpecialKey();
     }
     
 }

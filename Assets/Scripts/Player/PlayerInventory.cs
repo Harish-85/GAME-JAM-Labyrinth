@@ -8,6 +8,7 @@ public class PlayerInventory : MonoBehaviour
     public static PlayerInventory Inventory;
 
     public int keyCount = 0;
+    public int specialKeyCount = 0;
     public int moneyCount = 0;
     public int torchCount = 0;
     
@@ -62,5 +63,9 @@ public class PlayerInventory : MonoBehaviour
     {
         keyCount -= 1;
     }
-    
+
+    public void AddSpecialKey()
+    {
+        specialKeyCount += 1;
+    }
 }
