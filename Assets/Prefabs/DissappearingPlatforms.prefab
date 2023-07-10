@@ -49,6 +49,7 @@ MonoBehaviour:
   dissappearTime: 1
   activeTime: 1
   platform: {fileID: 4794377113021356306}
+  platformSprite: {fileID: 5574392764108688477}
 --- !u!1001 &1151685782172154322
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59,7 +60,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3863729681008648654, guid: e5a16ecd82f8e124f99ebc3f6e678e2c, type: 3}
       propertyPath: m_InstanceId
-      value: -101692
+      value: -743574
       objectReference: {fileID: 0}
     - target: {fileID: -3863729681008648654, guid: e5a16ecd82f8e124f99ebc3f6e678e2c, type: 3}
       propertyPath: m_HasRenderer
@@ -121,6 +122,11 @@ PrefabInstance:
 --- !u!1 &4794377113021356306 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5580681805676912832, guid: e5a16ecd82f8e124f99ebc3f6e678e2c, type: 3}
+  m_PrefabInstance: {fileID: 1151685782172154322}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &5574392764108688477 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4802988615448262031, guid: e5a16ecd82f8e124f99ebc3f6e678e2c, type: 3}
   m_PrefabInstance: {fileID: 1151685782172154322}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8842922100585569026 stripped

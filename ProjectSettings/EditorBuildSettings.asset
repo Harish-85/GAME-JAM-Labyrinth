@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/EndCredits.unity
     guid: 8842618f305971841a58278c3cac44b5
+  - enabled: 1
+    path: Assets/MainMeny].unity
+    guid: f7f38a4267902fc48a718b0f44c6578a
   m_configObjects: {}

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using TarodevController;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 //More singletons
 public class PlayerDeathManager : MonoBehaviour
 {
@@ -60,7 +62,9 @@ public class PlayerDeathManager : MonoBehaviour
         {
             guppy.GetComponent<EnemyManager>().ResetSpeed();
         }
-        guppy.gameObject.SetActive(false);
+        if(SceneManager.GetActiveScene().buildIndex == 0)
+            guppy.gameObject.SetActive(false);
+        
 
         TimeManager.Instance.timePassed = 0;
         totalDeaths++;
