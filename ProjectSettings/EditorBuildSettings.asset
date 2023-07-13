@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/MainMeny].unity
+    guid: f7f38a4267902fc48a718b0f44c6578a
+  - enabled: 1
     path: Assets/BONCYSLEVEL.unity
     guid: 9a6045d30cf2fb548bcb88ae7ef4d59b
   - enabled: 1
@@ -14,7 +17,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/EndCredits.unity
     guid: 8842618f305971841a58278c3cac44b5
-  - enabled: 1
-    path: Assets/MainMeny].unity
-    guid: f7f38a4267902fc48a718b0f44c6578a
   m_configObjects: {}

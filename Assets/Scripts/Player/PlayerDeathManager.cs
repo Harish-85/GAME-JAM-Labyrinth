@@ -62,7 +62,7 @@ public class PlayerDeathManager : MonoBehaviour
         {
             guppy.GetComponent<EnemyManager>().ResetSpeed();
         }
-        if(SceneManager.GetActiveScene().buildIndex == 0)
+        if(SceneManager.GetActiveScene().buildIndex == 1)
             guppy.gameObject.SetActive(false);
         
 
@@ -71,7 +71,12 @@ public class PlayerDeathManager : MonoBehaviour
         isDead = false;
     }
 
-
+    public void ResetSpawnPoint(Vector3 playerPos, Vector3 guppyPos)
+    {
+        spawnPoint = playerPos;
+        guppySpawnPoint = guppyPos;
+    }
+    
     void DeathEffects()
     {
         CameraVingnette.Instance.startVignette();
