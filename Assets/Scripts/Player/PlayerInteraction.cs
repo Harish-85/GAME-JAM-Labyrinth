@@ -4,6 +4,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 //i can spot a possible bug in this code, and its a problem for future me to solve
+//update future me forgot what the bug even is.
+
 namespace DefaultNamespace
 {
     public class PlayerInteraction : MonoBehaviour
